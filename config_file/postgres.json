@@ -1,7 +1,0 @@
-{
-    "dbname": "tpch_1",
-    "user": "postgres",
-    "password": "knob",
-    "host": "localhost",
-    "port": 6001
-}
