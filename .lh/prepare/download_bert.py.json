@@ -1,0 +1,18 @@
+{
+    "sourceFile": "prepare/download_bert.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1789548052216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1789548052215,
+            "name": "Commit-0",
+            "content": "from pathlib import Path\nfrom transformers import BertTokenizer, BertModel\n\nMODEL_ID = \"bert-base-uncased\"\nTARGET = Path(__file__).resolve().parents[1] / \"config_file\" / \"bert-base-uncased\"\n\ntokenizer = BertTokenizer.from_pretrained(MODEL_ID)\nmodel = BertModel.from_pretrained(MODEL_ID)\n\nTARGET.mkdir(parents=True, exist_ok=True)\ntokenizer.save_pretrained(TARGET)\nmodel.save_pretrained(TARGET)\nprint(f\"saved to {TARGET}\")\n"
+        }
+    ]
+}

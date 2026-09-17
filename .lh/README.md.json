@@ -1,0 +1,18 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1789483837448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1789483837448,
+            "name": "Commit-0",
+            "content": "An unofficial implementation of paper \"Query Rewriting via Large Language Models\"\n\n1. pip install -r requirement.txt\n2. please download longformer in huggenface to enable the embedding moodule.(using download.py in prepare file)\n3. set the databse configuration in postgres.json/mysql.json in config_file\n4. set the openai api key in pipeline_module/gpt.py\n\nThe main function can be found in `/pipeline_module/pipeline.py`.\n\n## Environment setup with uv\n\nThe environment is managed with [uv](https://docs.astral.sh/uv/) and lives in `.venv` (Python 3.12).\n\n```bash\n# install uv (if missing)\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nexport PATH=\"$HOME/.local/bin:$PATH\"\n\n# create the virtual environment\nuv venv --python 3.12 .venv\n\n# install dependencies\nuv pip install --python .venv -r requirement.txt\n# psycopg2 needs pg_config; use the binary build instead on machines without libpq-dev\nuv pip install --python .venv psycopg2-binary\n# keep httpx < 0.28 so that openai==1.35.13 works, with socks support enabled\nuv pip install --python .venv \"httpx[socks]<0.28\"\n```\n\nRun scripts with `.venv/bin/python run.py`.\n\n### Note on the ALL_PROXY variable\n\n`openai==1.35.13` pulls in `httpx 0.27`, which understands `socks5` but **not** `socks5h`\nproxy URLs. If your shell exports `ALL_PROXY=socks5h://...`, creating an `OpenAI` client\nfails immediately with `ValueError: Unknown scheme for proxy URL`. Clear that variable\nfor the run; `http_proxy`/`https_proxy` are still honored, so network access is unaffected:\n\n```bash\nenv -u ALL_PROXY -u all_proxy .venv/bin/python run.py\n```\n"
+        }
+    ]
+}

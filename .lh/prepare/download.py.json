@@ -1,0 +1,18 @@
+{
+    "sourceFile": "prepare/download.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1789525981803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1789525981803,
+            "name": "Commit-0",
+            "content": "from pathlib import Path\nfrom transformers import LongformerTokenizer, LongformerModel\n\nMODEL_ID = \"allenai/longformer-base-4096\"\nTARGET = Path(__file__).resolve().parents[1] / \"config_file\" / \"longformer\"\n\ntokenizer = LongformerTokenizer.from_pretrained(MODEL_ID)\nmodel = LongformerModel.from_pretrained(MODEL_ID)\n\nTARGET.mkdir(parents=True, exist_ok=True)\ntokenizer.save_pretrained(TARGET)\nmodel.save_pretrained(TARGET)\nprint(f\"saved to {TARGET}\")"
+        }
+    ]
+}

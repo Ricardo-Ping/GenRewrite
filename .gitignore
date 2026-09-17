@@ -83,6 +83,8 @@ workspace.xml
 .idea/workspace.xml
 # Environments
 .env
+.env.*
+!.env.example
 .venv
 env/
 venv/
@@ -102,3 +104,17 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# ============================================================
+# GenRewrite: 本地配置与模型文件 (不入库)
+# ------------------------------------------------------------
+# config_file/mysql.json 与 postgres.json 含数据库明文密码 (dbname/
+# user/password/host/port), 属于敏感凭据;
+# bert-base-uncased/ 与 longformer/ 为 HuggingFace 模型权重 (合计约
+# 1GB), 且可随时用 prepare/download_bert.py 和 prepare/download.py
+# 重新下载。因此整个 config_file/ 目录不纳入版本控制。
+# ============================================================
+config_file/
+
+# macOS 目录元数据文件
+.DS_Store

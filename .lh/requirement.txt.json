@@ -1,0 +1,18 @@
+{
+    "sourceFile": "requirement.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1789527695275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1789527695275,
+            "name": "Commit-0",
+            "content": "numpy==1.26.4\nopenai==1.35.13\npandas==2.2.2\npsycopg2==2.9.9\nscikit-learn==1.5.1\nscipy==1.13.1\ntabulate==0.9.0\ntiktoken==0.7.0\ntokenizers==0.19.1\ntorch==2.14.0\ntqdm==4.66.4\ntransformers==4.41.2\n\n"
+        }
+    ]
+}
